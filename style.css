@@ -1,0 +1,147 @@
+/* ===== Base ===== */
+:root{
+  --bg: #FAF3E0;      /* cream */
+  --card: #ffffff;    /* white card */
+  --text: #111111;
+  --muted: #666666;
+  --line: #EDE7DA;
+  --max: 920px;
+}
+
+* { box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ===== Header ===== */
+header.iat-355{
+  text-align: center;
+  padding: 56px 20px 28px;
+}
+
+header.iat-355 h1{
+  margin: 0;
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+}
+
+header.iat-355 p{
+  margin: 10px 0 18px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+/* Nav links */
+header.iat-355 nav{
+  display: inline-flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+header.iat-355 nav a{
+  text-decoration: none;
+  color: var(--text);
+  padding: 10px 14px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.7);
+  border-radius: 999px;
+}
+
+header.iat-355 nav a:hover{
+  background: white;
+}
+
+/* Divider line */
+hr{
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  margin: 0 20px 24px;
+}
+
+/* ===== Main container ===== */
+.container{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+/* Make each section look like a “card” */
+main.container section{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px 22px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+/* Section titles */
+main.container h2{
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+/* Lists */
+ul{
+  margin: 0;
+  padding-left: 18px;
+}
+
+li{
+  margin: 6px 0;
+}
+
+/* ===== Skills tags ===== */
+.tags{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tags li{
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: #F6F6F6;
+  font-size: 0.95rem;
+}
+
+/* Links in content */
+a{
+  color: #111;
+  text-decoration: underline;
+  text-decoration-color: rgba(0,0,0,0.25);
+  text-underline-offset: 3px;
+}
+
+a:hover{
+  text-decoration-color: rgba(0,0,0,0.7);
+}
+
+/* Footer */
+footer.container{
+  padding-top: 10px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.muted{
+  color: var(--muted);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px){
+  header.iat-355 h1{ font-size: 2.2rem; }
+  main.container section{ padding: 18px; }
+}
