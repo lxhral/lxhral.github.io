@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>D3 Animation Assignment</title>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<style>
+
+body{
+  font-family: Arial, sans-serif;
+  background:#f5f1e8;
+  text-align:center;
+  margin:0;
+}
+
+header{
+  margin-top:40px;
+}
+
+nav{
+  margin-top:20px;
+}
+
+nav a{
+  padding:10px 18px;
+  background:#eee;
+  border-radius:20px;
+  margin:5px;
+  text-decoration:none;
+  color:black;
+}
+
+.card{
+  width:900px;
+  margin:40px auto;
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+svg{
+  border:1px solid #ddd;
+  border-radius:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>Xahra Khosravi</h1>
+<p>Interactive Arts & Technology student</p>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="visualizations.html">Visualizations</a>
+<a href="assignments.html">Assignments</a>
+</nav>
+
+</header>
+
+<div class="card">
+
+<h2>D3 Circle Interaction</h2>
+<p>Click anywhere to create circles</p>
+
+<svg id="canvas" width="800" height="450"></svg>
+
+</div>
+
+<script>
+
+const svg = d3.select("#canvas");
+
+const maxCircles = 10;
+
+let circles = [];
+
+svg.on("click", function(event){
+
+  const coords = d3.pointer(event);
+
+  const newCircle = {
+    x: coords[0],
+    y: coords[1]
+  };
+
+  circles.push(newCircle);
+
+  if(circles.length > maxCircles){
+    circles.shift();
+  }
+
+  drawCircles();
+
+});
+
+function drawCircles(){
+
+  const selection = svg.selectAll("circle")
+  .data(circles);
+
+  selection.enter()
+  .append("circle")
+  .merge(selection)
+  .attr("cx", d => d.x)
+  .attr("cy", d => d.y)
+  .attr("r", 20)
+  .attr("fill", "steelblue");
+
+  selection.exit().remove();
+
+}
+
+</script>
+
+</body>
+</html>
